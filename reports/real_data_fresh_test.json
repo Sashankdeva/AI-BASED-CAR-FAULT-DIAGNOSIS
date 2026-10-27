@@ -1,0 +1,142 @@
+{
+  "model": "current",
+  "note": "final test: never used for training, tuning or rule design",
+  "trips": [
+    "live1",
+    "live10",
+    "live11",
+    "live12",
+    "live13",
+    "live14",
+    "live15",
+    "live16",
+    "live17",
+    "live18",
+    "live19",
+    "live2",
+    "live20",
+    "live21",
+    "live22",
+    "live23",
+    "live24",
+    "live25",
+    "live26",
+    "live27",
+    "live28",
+    "live29",
+    "live3",
+    "live30",
+    "live31",
+    "live32",
+    "live33",
+    "live34",
+    "live35",
+    "live36",
+    "live37",
+    "live38",
+    "live39",
+    "live4",
+    "live5",
+    "live6",
+    "live7",
+    "live8",
+    "live9",
+    "ufpe1",
+    "ufpe10",
+    "ufpe11",
+    "ufpe12",
+    "ufpe13",
+    "ufpe14",
+    "ufpe15",
+    "ufpe16",
+    "ufpe17",
+    "ufpe18",
+    "ufpe2",
+    "ufpe3",
+    "ufpe4",
+    "ufpe5",
+    "ufpe6",
+    "ufpe7",
+    "ufpe8",
+    "ufpe9"
+  ],
+  "hours": 36.33638888888889,
+  "healthy_heldout": {
+    "readings": 130811,
+    "trips": 57,
+    "raw_alert_rate": 0.06012491304248114,
+    "confirmed_alert_rate": 7.644617042909235e-05,
+    "trips_with_confirmed_alert": 0.017543859649122806,
+    "novel_rate": 0.010381389944270741,
+    "predicted": {
+      "normal": 0.9117505408566557,
+      "maf_sensor_fault": 0.038773497641635644,
+      "o2_sensor_fault": 0.016053695790109394,
+      "fuel_system_lean": 0.014364235423626453,
+      "unknown_anomaly": 0.010045026794382735,
+      "battery_charging_fault": 0.009013003493589989
+    }
+  },
+  "injected_fault_detection": {
+    "as_logged": {
+      "engine_overheating": {
+        "recall": 1.0,
+        "flagged_as_any_fault": 1.0
+      },
+      "low_oil_pressure": {
+        "recall": 0.0,
+        "flagged_as_any_fault": 0.086
+      },
+      "ignition_misfire": {
+        "recall": 0.0,
+        "flagged_as_any_fault": 0.314
+      },
+      "fuel_system_lean": {
+        "recall": 0.652,
+        "flagged_as_any_fault": 0.858
+      },
+      "battery_charging_fault": {
+        "recall": 0.988,
+        "flagged_as_any_fault": 0.992
+      },
+      "maf_sensor_fault": {
+        "recall": 0.472,
+        "flagged_as_any_fault": 0.764
+      },
+      "o2_sensor_fault": {
+        "recall": 0.854,
+        "flagged_as_any_fault": 0.864
+      }
+    },
+    "all_sensors": {
+      "engine_overheating": {
+        "recall": 1.0,
+        "flagged_as_any_fault": 1.0
+      },
+      "low_oil_pressure": {
+        "recall": 0.872,
+        "flagged_as_any_fault": 0.892
+      },
+      "ignition_misfire": {
+        "recall": 1.0,
+        "flagged_as_any_fault": 1.0
+      },
+      "fuel_system_lean": {
+        "recall": 0.946,
+        "flagged_as_any_fault": 0.954
+      },
+      "battery_charging_fault": {
+        "recall": 0.982,
+        "flagged_as_any_fault": 0.988
+      },
+      "maf_sensor_fault": {
+        "recall": 0.856,
+        "flagged_as_any_fault": 0.862
+      },
+      "o2_sensor_fault": {
+        "recall": 0.93,
+        "flagged_as_any_fault": 0.934
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "per_class_auc": {
+    "battery_charging_fault": {
+      "roc_auc": 0.9999805973682271,
+      "pr_auc": 0.9997898572888021
+    },
+    "engine_overheating": {
+      "roc_auc": 0.9999977825563687,
+      "pr_auc": 0.9999765485298859
+    },
+    "fuel_system_lean": {
+      "roc_auc": 0.9978668192267883,
+      "pr_auc": 0.9891809561205325
+    },
+    "ignition_misfire": {
+      "roc_auc": 1.0,
+      "pr_auc": 1.0
+    },
+    "low_oil_pressure": {
+      "roc_auc": 0.9957800842544982,
+      "pr_auc": 0.971652726575793
+    },
+    "maf_sensor_fault": {
+      "roc_auc": 0.9751737782855723,
+      "pr_auc": 0.8742877390914479
+    },
+    "normal": {
+      "roc_auc": 0.9801716218171298,
+      "pr_auc": 0.9609879118659663
+    },
+    "o2_sensor_fault": {
+      "roc_auc": 0.996816394668602,
+      "pr_auc": 0.9735282191981651
+    }
+  },
+  "shap_global": {
+    "misfire_count": 0.3837,
+    "coolant_temp": 0.3275,
+    "oil_vs_expected": 0.2525,
+    "charging_deviation": 0.2378,
+    "total_fuel_trim": 0.1945,
+    "long_fuel_trim": 0.1884,
+    "o2_voltage": 0.1653,
+    "fuel_pressure": 0.147,
+    "battery_voltage": 0.1168,
+    "maf_vs_expected": 0.1151,
+    "short_fuel_trim": 0.0932,
+    "oil_pressure": 0.0776,
+    "coolant_minus_intake": 0.0436,
+    "intake_air_temp": 0.0204
+  },
+  "robustness": {
+    "Clean test set": {
+      "accuracy": 0.9308333333333333,
+      "macro_f1": 0.9361404180245453,
+      "missed_fault_rate": 0.06909722222222223,
+      "false_alarm_rate": 0.06354166666666666
+    },
+    "Unseen vehicles (new seed)": {
+      "accuracy": 0.9320408588701271,
+      "macro_f1": 0.93648024863978,
+      "missed_fault_rate": 0.06951685783802572,
+      "false_alarm_rate": 0.058333333333333334
+    },
+    "Sensor noise +10% of sd": {
+      "accuracy": 0.8989583333333333,
+      "macro_f1": 0.9096926694615005,
+      "missed_fault_rate": 0.0763888888888889,
+      "false_alarm_rate": 0.12135416666666667
+    },
+    "Sensor noise +25% of sd": {
+      "accuracy": 0.8560416666666667,
+      "macro_f1": 0.8749704681469317,
+      "missed_fault_rate": 0.08090277777777778,
+      "false_alarm_rate": 0.19947916666666668
+    },
+    "Sensor drift (ageing)": {
+      "accuracy": 0.8945833333333333,
+      "macro_f1": 0.8997440175859671,
+      "missed_fault_rate": 0.07118055555555555,
+      "false_alarm_rate": 0.12604166666666666
+    },
+    "10% readings missing": {
+      "accuracy": 0.8614583333333333,
+      "macro_f1": 0.8649080685375572,
+      "missed_fault_rate": 0.15590277777777778,
+      "false_alarm_rate": 0.07083333333333333
+    },
+    "Oil pressure not reported": {
+      "accuracy": 0.8575,
+      "macro_f1": 0.8107454714774605,
+      "missed_fault_rate": 0.1920138888888889,
+      "false_alarm_rate": 0.0578125
+    },
+    "Mild faults only": {
+      "accuracy": 0.8663748175943298,
+      "macro_f1": 0.8646473935521855,
+      "missed_fault_rate": 0.16857838025721236,
+      "false_alarm_rate": 0.06614583333333333
+    }
+  },
+  "persistence": {
+    "healthy": {
+      "raw_false_alert_per_reading": 0.06266666666666666,
+      "confirmed_false_alert_per_reading": 0.005666666666666667,
+      "vehicles_with_false_alert_raw": 0.7933333333333333,
+      "vehicles_with_false_alert_confirmed": 0.10666666666666667,
+      "readings_per_vehicle": 20
+    },
+    "faulty": {
+      "engine_overheating": {
+        "detected_within_10": 1.0,
+        "mean_readings_to_alert": 1.0,
+        "raw_reading_hit_rate": 1.0
+      },
+      "low_oil_pressure": {
+        "detected_within_10": 1.0,
+        "mean_readings_to_alert": 1.2,
+        "raw_reading_hit_rate": 0.905
+      },
+      "ignition_misfire": {
+        "detected_within_10": 1.0,
+        "mean_readings_to_alert": 3.0,
+        "raw_reading_hit_rate": 1.0
+      },
+      "fuel_system_lean": {
+        "detected_within_10": 1.0,
+        "mean_readings_to_alert": 3.175,
+        "raw_reading_hit_rate": 0.955
+      },
+      "battery_charging_fault": {
+        "detected_within_10": 1.0,
+        "mean_readings_to_alert": 3.05,
+        "raw_reading_hit_rate": 0.99
+      },
+      "maf_sensor_fault": {
+        "detected_within_10": 0.825,
+        "mean_readings_to_alert": 3.303030303030303,
+        "raw_reading_hit_rate": 0.75
+      },
+      "o2_sensor_fault": {
+        "detected_within_10": 1.0,
+        "mean_readings_to_alert": 3.175,
+        "raw_reading_hit_rate": 0.9275
+      }
+    }
+  }
+}

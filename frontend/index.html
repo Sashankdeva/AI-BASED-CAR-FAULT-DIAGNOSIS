@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car Fault Diagnosis</title>
+  <style>
+    :root {
+      --bg: #eef1f5; --panel: #ffffff; --border: #e3e6ea; --text: #16191d; --muted: #646b75; --accent: #2f6fed;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0b0d10; --panel: #121519; --border: #2a3038; --text: #e8ebef; --muted: #9aa3ad; --accent: #5b8cff; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 1200px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 16px; }
+    header h1 { margin: 0; font-size: 24px; }
+    header p { margin: 6px 0 0; color: var(--muted); }
+    .pipeline { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; }
+    .pipeline span { background: var(--panel); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+    .pipeline i { color: var(--muted); font-style: normal; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+    .card h2 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .stat b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
+    .stat span { color: var(--muted); font-size: 12px; }
+    a { color: var(--accent); }
+    footer { color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>AI-Based Car Fault Diagnosis</h1>
+    <p>AI-powered fault detection · confidence scoring · preventive alerts</p>
+  </header>
+
+  <div class="pipeline" aria-label="Pipeline">
+    <span>Sensor Feed</span><i>→</i><span>Preprocessing</span><i>→</i><span>ML Detection</span><i>→</i>
+    <span>Fault Check</span><i>→</i><span>Confidence Score</span><i>→</i><span>Dashboard Alert</span>
+  </div>
+
+  <car-fault-diagnosis api-base="../"></car-fault-diagnosis>
+
+  <section class="card">
+    <h2>Model</h2>
+    <div class="stats" id="stats"><span>Loading…</span></div>
+  </section>
+
+  <footer>
+    Project 5 · Sri Sashank Devarakonda (24B11AI085) ·
+    <a href="../docs">API docs</a> · <a href="../api/v1/manifest">Integration manifest</a>
+  </footer>
+</main>
+
+<script src="widget/car-fault-widget.js"></script>
+<script>
+  fetch("../api/v1/model/info").then((r) => r.json()).then((m) => {
+    const pct = (v) => (v * 100).toFixed(1) + "%";
+    const items = [
+      [m.model.replace("_", " "), "Selected model"],
+      [pct(m.metrics.accuracy), "Test accuracy"],
+      [pct(m.metrics.macro_f1), "Macro F1"],
+      [pct(m.metrics.missed_fault_rate), "Missed-fault rate"],
+      [m.classes.length, "Fault classes"],
+      [m.train_rows.toLocaleString(), "Training rows"],
+    ];
+    document.getElementById("stats").innerHTML =
+      items.map(([v, l]) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`).join("");
+  }).catch(() => (document.getElementById("stats").textContent = "Model info unavailable."));
+</script>
+</body>
+</html>

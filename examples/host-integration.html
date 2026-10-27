@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Host Integration Demo</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #f1f3f6; color: #16191d; }
+    nav { display: flex; gap: 16px; padding: 14px 16px; background: #16191d; color: #fff; flex-wrap: wrap; }
+    nav a { color: #c9d4ff; text-decoration: none; font-size: 14px; }
+    nav a.active { color: #fff; font-weight: 700; }
+    main { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+    #toast { position: fixed; right: 16px; bottom: 16px; background: #d62b3a; color: #fff; padding: 10px 14px;
+             border-radius: 10px; display: none; max-width: calc(100% - 32px); }
+  </style>
+</head>
+<body>
+  <!-- How the merged team website embeds this module: one script + one tag. -->
+  <nav>
+    <strong>Safer Industrial AI</strong>
+    <a href="#">1 · Camera Safety</a><a href="#">3 · Predictive Maintenance</a>
+    <a class="active" href="#">5 · Car Fault Diagnosis</a><a href="#">8 · Hazard Detection</a>
+  </nav>
+  <main>
+    <car-fault-diagnosis api-base="http://localhost:8005/" interval="2500"></car-fault-diagnosis>
+  </main>
+  <div id="toast"></div>
+
+  <script src="http://localhost:8005/widget.js"></script>
+  <script>
+    // The host site can react to the module's alerts (notification centre, logging, etc.).
+    document.addEventListener("carfault:alert", (e) => {
+      const t = document.getElementById("toast");
+      t.textContent = `Car alert: ${e.detail.fault_label} (${e.detail.risk_level})`;
+      t.style.display = "block";
+      clearTimeout(t._h);
+      t._h = setTimeout(() => (t.style.display = "none"), 3000);
+    });
+  </script>
+</body>
+</html>

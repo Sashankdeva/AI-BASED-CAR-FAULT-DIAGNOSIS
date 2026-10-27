@@ -1,0 +1,224 @@
+{
+  "model": "current",
+  "source": "https://github.com/eron93br/carOBD (2014 Toyota Etios, 1 Hz, unlabelled normal driving)",
+  "held_out_trips": [
+    "drive12",
+    "drive3",
+    "drive6",
+    "drive9",
+    "idle3",
+    "idle6",
+    "idle9",
+    "long12",
+    "long3",
+    "long6",
+    "long9"
+  ],
+  "missing_sensors": [
+    "maf_rate",
+    "o2_voltage",
+    "fuel_pressure",
+    "misfire_count",
+    "oil_pressure"
+  ],
+  "healthy_heldout": {
+    "readings": 35236,
+    "trips": 11,
+    "raw_alert_rate": 0.018901123850607333,
+    "confirmed_alert_rate": 0.0,
+    "trips_with_confirmed_alert": 0.0,
+    "novel_rate": 0.008797820410943354,
+    "predicted": {
+      "normal": 0.9720740152117153,
+      "o2_sensor_fault": 0.0087694403451016,
+      "unknown_anomaly": 0.008514019752525826,
+      "battery_charging_fault": 0.006442274946077875,
+      "maf_sensor_fault": 0.0023555454648654787,
+      "fuel_system_lean": 0.0018447042797139288
+    }
+  },
+  "injected_fault_detection": {
+    "as_logged": {
+      "engine_overheating": {
+        "recall": 1.0,
+        "flagged_as_any_fault": 1.0
+      },
+      "low_oil_pressure": {
+        "recall": 0.0,
+        "flagged_as_any_fault": 0.028
+      },
+      "ignition_misfire": {
+        "recall": 0.0,
+        "flagged_as_any_fault": 0.262
+      },
+      "fuel_system_lean": {
+        "recall": 0.68,
+        "flagged_as_any_fault": 0.882
+      },
+      "battery_charging_fault": {
+        "recall": 0.99,
+        "flagged_as_any_fault": 0.99
+      },
+      "maf_sensor_fault": {
+        "recall": 0.496,
+        "flagged_as_any_fault": 0.794
+      },
+      "o2_sensor_fault": {
+        "recall": 0.89,
+        "flagged_as_any_fault": 0.894
+      }
+    },
+    "all_sensors": {
+      "engine_overheating": {
+        "recall": 0.998,
+        "flagged_as_any_fault": 1.0
+      },
+      "low_oil_pressure": {
+        "recall": 0.888,
+        "flagged_as_any_fault": 0.89
+      },
+      "ignition_misfire": {
+        "recall": 1.0,
+        "flagged_as_any_fault": 1.0
+      },
+      "fuel_system_lean": {
+        "recall": 0.956,
+        "flagged_as_any_fault": 0.954
+      },
+      "battery_charging_fault": {
+        "recall": 0.988,
+        "flagged_as_any_fault": 0.992
+      },
+      "maf_sensor_fault": {
+        "recall": 0.852,
+        "flagged_as_any_fault": 0.868
+      },
+      "o2_sensor_fault": {
+        "recall": 0.962,
+        "flagged_as_any_fault": 0.962
+      }
+    }
+  },
+  "sensor_range_comparison": {
+    "engine_rpm": {
+      "synthetic": [
+        760.0074500000001,
+        2170.0195000000003,
+        4316.336900000002
+      ],
+      "real": [
+        680.25,
+        1354.5,
+        2360.75
+      ]
+    },
+    "vehicle_speed": {
+      "synthetic": [
+        0.0,
+        48.9805,
+        121.67335
+      ],
+      "real": [
+        0.0,
+        29.0,
+        80.0
+      ]
+    },
+    "throttle_pos": {
+      "synthetic": [
+        2.8965,
+        20.436999999999998,
+        72.238
+      ],
+      "real": [
+        16.078432,
+        19.215687,
+        26.666666
+      ]
+    },
+    "engine_load": {
+      "synthetic": [
+        18.67035,
+        40.111000000000004,
+        82.18835
+      ],
+      "real": [
+        20.392157,
+        34.117645,
+        72.549019
+      ]
+    },
+    "coolant_temp": {
+      "synthetic": [
+        57.4919,
+        89.626,
+        94.84505
+      ],
+      "real": [
+        64.0,
+        87.0,
+        89.0
+      ]
+    },
+    "intake_air_temp": {
+      "synthetic": [
+        14.073,
+        30.225,
+        47.221199999999996
+      ],
+      "real": [
+        34.0,
+        46.0,
+        58.0
+      ]
+    },
+    "short_fuel_trim": {
+      "synthetic": [
+        -5.0691999999999995,
+        -0.0315,
+        4.928250000000001
+      ],
+      "real": [
+        -5.46875,
+        0.0,
+        5.46875
+      ]
+    },
+    "long_fuel_trim": {
+      "synthetic": [
+        -3.80605,
+        1.1955,
+        6.019100000000001
+      ],
+      "real": [
+        -4.6875,
+        -0.78125,
+        2.34375
+      ]
+    },
+    "timing_advance": {
+      "synthetic": [
+        7.888850000000001,
+        23.4055,
+        32.68605
+      ],
+      "real": [
+        -5.0,
+        9.0,
+        27.0
+      ]
+    },
+    "battery_voltage": {
+      "synthetic": [
+        13.685,
+        14.099,
+        14.515
+      ],
+      "real": [
+        13.417,
+        13.671,
+        14.042
+      ]
+    }
+  }
+}

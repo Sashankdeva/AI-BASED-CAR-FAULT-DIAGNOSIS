@@ -1,0 +1,36 @@
+{
+  "id": "car-fault-diagnosis",
+  "name": "AI-Based Car Fault Diagnosis",
+  "version": "1.1.0",
+  "project_no": 5,
+  "author": "Sri Sashank Devarakonda (24B11AI085)",
+  "category": "Diagnosis & Alerts",
+  "description": "Classifies OBD-II vehicle telemetry into 8 fault classes with calibrated confidence, risk levels, SHAP explanations, multi-fault and unknown-fault detection, and persistent (low false-alarm) alerts.",
+  "tags": ["OBD-II", "Random Forest", "calibrated confidence", "SHAP", "novelty detection", "multi-fault"],
+  "pipeline": ["Sensor Feed", "Preprocessing", "ML Detection", "Fault Check", "Confidence Score", "Dashboard Alert"],
+  "api": {
+    "base_path": "/api/v1",
+    "openapi": "/openapi.json",
+    "docs": "/docs",
+    "health": "/api/v1/health",
+    "endpoints": {
+      "diagnose": {"method": "POST", "path": "/api/v1/diagnose"},
+      "diagnose_batch": {"method": "POST", "path": "/api/v1/diagnose/batch"},
+      "diagnose_csv": {"method": "POST", "path": "/api/v1/diagnose/csv"},
+      "simulate": {"method": "GET", "path": "/api/v1/simulate"},
+      "simulate_scenarios": {"method": "GET", "path": "/api/v1/simulate/scenarios"},
+      "reset_vehicle": {"method": "POST", "path": "/api/v1/vehicles/{vehicle_id}/reset"},
+      "alerts": {"method": "GET", "path": "/api/v1/alerts"},
+      "sensors": {"method": "GET", "path": "/api/v1/sensors"},
+      "faults": {"method": "GET", "path": "/api/v1/faults"},
+      "model_info": {"method": "GET", "path": "/api/v1/model/info"}
+    }
+  },
+  "ui": {
+    "dashboard": "/ui/",
+    "widget_script": "/widget.js",
+    "widget_tag": "car-fault-diagnosis",
+    "events": ["carfault:result", "carfault:alert"]
+  },
+  "default_port": 8005
+}

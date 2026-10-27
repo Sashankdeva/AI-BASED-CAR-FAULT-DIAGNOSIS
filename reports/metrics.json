@@ -1,0 +1,365 @@
+{
+  "model": "random_forest",
+  "cv_macro_f1": {
+    "random_forest": {
+      "mean": 0.9061313699729666,
+      "std": 0.002367823901282052
+    },
+    "gradient_boosting": {
+      "mean": 0.9058193296009508,
+      "std": 0.002939565798870337
+    }
+  },
+  "test": {
+    "accuracy": 0.9308333333333333,
+    "macro_f1": 0.9361404180245453,
+    "weighted_f1": 0.9304575037624698,
+    "missed_fault_rate": 0.06909722222222223,
+    "false_alarm_rate": 0.06354166666666666
+  },
+  "per_class": {
+    "normal": {
+      "precision": 0.900350525788683,
+      "recall": 0.9364583333333333,
+      "f1-score": 0.9180495276997702,
+      "support": 1920.0
+    },
+    "engine_overheating": {
+      "precision": 1.0,
+      "recall": 0.9975669099756691,
+      "f1-score": 0.9987819732034104,
+      "support": 411.0
+    },
+    "low_oil_pressure": {
+      "precision": 0.9373433583959899,
+      "recall": 0.9077669902912622,
+      "f1-score": 0.9223181257706535,
+      "support": 412.0
+    },
+    "ignition_misfire": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 412.0
+    },
+    "fuel_system_lean": {
+      "precision": 0.9825436408977556,
+      "recall": 0.9586374695863747,
+      "f1-score": 0.9704433497536946,
+      "support": 411.0
+    },
+    "battery_charging_fault": {
+      "precision": 0.9927184466019418,
+      "recall": 0.9951338199513382,
+      "f1-score": 0.9939246658566221,
+      "support": 411.0
+    },
+    "maf_sensor_fault": {
+      "precision": 0.8067885117493473,
+      "recall": 0.7518248175182481,
+      "f1-score": 0.7783375314861462,
+      "support": 411.0
+    },
+    "o2_sensor_fault": {
+      "precision": 0.9378238341968912,
+      "recall": 0.8786407766990292,
+      "f1-score": 0.9072681704260651,
+      "support": 412.0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "normal",
+      "engine_overheating",
+      "low_oil_pressure",
+      "ignition_misfire",
+      "fuel_system_lean",
+      "battery_charging_fault",
+      "maf_sensor_fault",
+      "o2_sensor_fault"
+    ],
+    "matrix": [
+      [
+        1798,
+        0,
+        18,
+        0,
+        6,
+        2,
+        72,
+        24
+      ],
+      [
+        1,
+        410,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        37,
+        0,
+        374,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        412,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        14,
+        0,
+        2,
+        0,
+        394,
+        0,
+        1,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        409,
+        0,
+        0
+      ],
+      [
+        98,
+        0,
+        2,
+        0,
+        1,
+        1,
+        309,
+        0
+      ],
+      [
+        47,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        362
+      ]
+    ]
+  },
+  "calibration": {
+    "uncalibrated": {
+      "ece": 0.08012749508978684,
+      "brier": 0.1372955560858263,
+      "bins": [
+        {
+          "bin": [
+            0.3,
+            0.4
+          ],
+          "count": 30,
+          "confidence": 0.36446843033509696,
+          "accuracy": 0.5
+        },
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 245,
+          "confidence": 0.46287196945156134,
+          "accuracy": 0.6285714285714286
+        },
+        {
+          "bin": [
+            0.5,
+            0.6
+          ],
+          "count": 350,
+          "confidence": 0.5534963928399643,
+          "accuracy": 0.68
+        },
+        {
+          "bin": [
+            0.6,
+            0.7
+          ],
+          "count": 461,
+          "confidence": 0.651400428726893,
+          "accuracy": 0.8047722342733189
+        },
+        {
+          "bin": [
+            0.7,
+            0.8
+          ],
+          "count": 615,
+          "confidence": 0.752135614761631,
+          "accuracy": 0.9203252032520325
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 694,
+          "confidence": 0.850149825065531,
+          "accuracy": 0.9610951008645533
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 2405,
+          "confidence": 0.9777395514895514,
+          "accuracy": 0.9962577962577963
+        }
+      ]
+    },
+    "calibrated": {
+      "ece": 0.015947951253050215,
+      "brier": 0.1042895790413779,
+      "bins": [
+        {
+          "bin": [
+            0.4,
+            0.5
+          ],
+          "count": 30,
+          "confidence": 0.4648995974194983,
+          "accuracy": 0.5333333333333333
+        },
+        {
+          "bin": [
+            0.5,
+            0.6
+          ],
+          "count": 224,
+          "confidence": 0.5522374409360544,
+          "accuracy": 0.5267857142857143
+        },
+        {
+          "bin": [
+            0.6,
+            0.7
+          ],
+          "count": 222,
+          "confidence": 0.6499674913950536,
+          "accuracy": 0.7027027027027027
+        },
+        {
+          "bin": [
+            0.7,
+            0.8
+          ],
+          "count": 271,
+          "confidence": 0.7531806167624201,
+          "accuracy": 0.8450184501845018
+        },
+        {
+          "bin": [
+            0.8,
+            0.9
+          ],
+          "count": 445,
+          "confidence": 0.8623814282322403,
+          "accuracy": 0.8786516853932584
+        },
+        {
+          "bin": [
+            0.9,
+            1.0
+          ],
+          "count": 3608,
+          "confidence": 0.9792238267840314,
+          "accuracy": 0.9861419068736141
+        }
+      ]
+    }
+  },
+  "multi_fault": {
+    "two_fault_test": {
+      "exact_match": 0.9166666666666666,
+      "micro_precision": 1.0,
+      "micro_recall": 0.9583333333333334,
+      "per_fault_recall": {
+        "engine_overheating": 1.0,
+        "low_oil_pressure": 0.9166666666666666,
+        "ignition_misfire": 1.0,
+        "fuel_system_lean": 0.9666666666666667,
+        "battery_charging_fault": 0.9888888888888889,
+        "maf_sensor_fault": 0.7916666666666666,
+        "o2_sensor_fault": 0.9333333333333333
+      }
+    },
+    "single_fault_test": {
+      "exact_match": 0.9308333333333333,
+      "micro_precision": 0.9679558011049724,
+      "micro_recall": 0.9125,
+      "per_fault_recall": {
+        "engine_overheating": 0.9975669099756691,
+        "low_oil_pressure": 0.8907766990291263,
+        "ignition_misfire": 1.0,
+        "fuel_system_lean": 0.9172749391727494,
+        "battery_charging_fault": 0.9927007299270073,
+        "maf_sensor_fault": 0.7153284671532847,
+        "o2_sensor_fault": 0.8737864077669902
+      }
+    }
+  },
+  "novelty": {
+    "selected": "local_outlier_factor",
+    "candidates": {
+      "local_outlier_factor": {
+        "threshold": -1.5837233387132144,
+        "known_test_flagged_rate": 0.0077083333333333335,
+        "two_fault_test_flagged_rate": 0.021666666666666667,
+        "unseen_fault_detection_rate": {
+          "unseen_coolant_sensor_open": 1.0,
+          "unseen_rich_regulator": 1.0
+        }
+      },
+      "isolation_forest": {
+        "threshold": -0.5661879603496683,
+        "known_test_flagged_rate": 0.013333333333333334,
+        "two_fault_test_flagged_rate": 0.08166666666666667,
+        "unseen_fault_detection_rate": {
+          "unseen_coolant_sensor_open": 0.028,
+          "unseen_rich_regulator": 0.022
+        }
+      }
+    }
+  },
+  "feature_importance": {
+    "misfire_count": 0.16864,
+    "coolant_temp": 0.16446,
+    "o2_voltage": 0.14396,
+    "battery_voltage": 0.14365,
+    "oil_pressure": 0.13791,
+    "fuel_pressure": 0.09593,
+    "engine_rpm": 0.09525,
+    "long_fuel_trim": 0.08265,
+    "maf_rate": 0.07081,
+    "engine_load": 0.04649,
+    "short_fuel_trim": 0.03039,
+    "throttle_pos": 0.00223,
+    "vehicle_speed": 0.00175,
+    "timing_advance": 0.00049,
+    "intake_air_temp": 0.00013
+  }
+}
